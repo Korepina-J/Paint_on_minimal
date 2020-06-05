@@ -1,6 +1,6 @@
 #include "command.h"
 
-Command::Command(QObject *parentW):QGraphicsScene(parentW)
+Command::Command(QObject *parentW)
 {
     this->parent=parentW;
 }

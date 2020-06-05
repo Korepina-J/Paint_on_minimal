@@ -29,7 +29,8 @@ SOURCES += \
         paint.cpp \
     paintscene.cpp \
     command.cpp \
-    undo.cpp
+    undo.cpp \
+    historycommand.cpp
 
 HEADERS += \
         paint.h \

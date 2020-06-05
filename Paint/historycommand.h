@@ -6,29 +6,24 @@
 
 class HistoryCommand{
 private:
-    static std::stack<QGraphicsItem> history;
+     std::stack<QGraphicsItemGroup*> history;
+     static HistoryCommand* _self;
+private:
+     HistoryCommand(){}
+
 public:
-//HistoryCommand(){}
-  // template<typename Item>
+     static HistoryCommand* Instance()
+           {
+         if(!_self)
+                 {
+                     _self = new HistoryCommand();
+                 }
+                 return _self;
+           }
 
-   static bool push(QGraphicsItem current_command){
-       history.push(current_command);
-       return true;
-   }
 
-
-    template<typename Item>
-    static QGraphicsItem* pop(){
-
-            if(!history.empty()) {
-                QGraphicsItem* undo_object = new Item(history.top());
-
-                history.pop();
-                return undo_object;
-                }
-            else return NULL;
-    }
-
+    void push(QGraphicsItemGroup *current_command);
+    QGraphicsItemGroup* pop();
 };
 
 #endif // HISTORYCOMMAND_H

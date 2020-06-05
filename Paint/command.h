@@ -2,7 +2,7 @@
 #define COMMAND_H
 #include "QWidget"
 #include <QGraphicsScene>
-class Command : public QGraphicsScene
+class Command
 {
 protected:
         QObject *parent;

@@ -7,7 +7,7 @@
 #include <QDebug>
 #include "command.h"
 
-class paintScene : public Command
+class paintScene :public QGraphicsScene
 {
 
     Q_OBJECT
@@ -15,14 +15,16 @@ class paintScene : public Command
 public:
     explicit paintScene(QObject *parent = 0);
     ~paintScene();
-void Execute() override;
+
 private:
     QPointF     previousPoint;      // Координаты предыдущей точки
-
+    QGraphicsItemGroup *item;
+    QGraphicsScene      *scene;
 private:
     // Для рисования используем события мыши
     void mousePressEvent(QGraphicsSceneMouseEvent * event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+  void deleteItem(QGraphicsItemGroup *group);
 
 };
 
